@@ -24,4 +24,17 @@ function component(){
     return element;
 }
 
-document.body.append(component());
+// document.body.append(component());
+// 当 print.js 改变导致页面重新渲染时，重新获取渲染的元素
+let element = component();
+document.body.append(element)
+
+if(module.hot){
+    module.hot.accept('./print.js', function () {
+        console.log('Accepting the updated printMe module!');
+        printMe();
+        document.removeChild(element);
+        element = component();
+        document.body.appendChild(element);
+    })
+}

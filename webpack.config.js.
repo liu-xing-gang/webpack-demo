@@ -53,5 +53,8 @@ module.exports = {
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({title: 'Output Management'}),
         new webpack.HotModuleReplacementPlugin()
-    ]
+    ],
+
+    // 压缩输出
+    mode: "production"
 }

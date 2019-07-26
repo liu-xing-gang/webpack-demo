@@ -1,13 +1,14 @@
-import _ from 'lodash'
+// import _ from 'lodash'
 import './style.css'
 import Icon from './icon.png'
 import Data from './data.xml'
 import printMe from './print.js'
+import { cube } from './math.js'
 
 
 function component(){
     var element = document.createElement('div');
-    element.innerHTML = _.join(['Hello ', 'webpack'], '');
+    // element.innerHTML = _.join(['Hello ', 'webpack'], '');
     element.classList.add('hello');
 
     var myIcon = new Image();
@@ -17,11 +18,15 @@ function component(){
     var btn = document.createElement('button');
     btn.innerHTML = 'Click and check thr console';
     btn.onclick = printMe;
+
+    var el = document.createElement('pre');
+    el.innerHTML = ['Hello webpack!', '5 cubed is equal to ' + cube(5)].join('\n\n');
+
     element.appendChild(btn);
 
     console.log(Data)
 
-    return element;
+    return el;
 }
 
 // document.body.append(component());
